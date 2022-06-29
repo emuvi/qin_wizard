@@ -1,0 +1,24 @@
+{
+  "name": "qin_wizard_view",
+  "displayName": "QinWizardView",
+  "description": "QinWizardView is the view of the desktop application that bundles the Quick Interface for the Pointel platform.",
+  "keywords": [],
+  "repository": "https://github.com/pointel-com-br/qin_wizard",
+  "author": "Éverton M. Vieira",
+  "license": "LGPL-3.0-only",
+  "version": "0.1.0",
+  "main": "public/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc && npx webpack --mode development",
+    "prod": "tsc && npx webpack --mode production"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^1"
+  },
+  "devDependencies": {
+    "typescript": "^4",
+    "webpack": "^5",
+    "webpack-cli": "^4"
+  }
+}

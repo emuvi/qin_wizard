@@ -1,0 +1,21 @@
+[package]
+name = "qin_wizard_base"
+default-run = "qin_wizard_base"
+description = "QinWizardBase is the base of the desktop application that bundles the Quick Interface for the Pointel platform."
+repository = "http://github.com/pointel-com-br/qin_wizard"
+authors = ["Éverton M. Vieira"]
+license = "LGPL-3.0-only"
+version = "0.1.0"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "1", features = [] }
+
+[dependencies]
+serde_json = "1"
+serde = { version = "1", features = ["derive"] }
+tauri = { version = "1", features = ["api-all"] }
+
+[features]
+default = [ "custom-protocol" ]
+custom-protocol = [ "tauri/custom-protocol" ]
