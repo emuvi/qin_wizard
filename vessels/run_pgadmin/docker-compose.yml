@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  qvess_ser_run_pgadmin:
+    container_name: qvess_run_pgadmin
+    image: dpage/pgadmin4
+    volumes:
+      - ${QIN_ROOT}/Arch:/Pointel/Arch
+      - ${QIN_ROOT}/Work/.pgadmin:/var/lib/pgadmin
+    environment:
+      - QIN_ROOT=/Pointel
+      - PGADMIN_DEFAULT_EMAIL=${QIN_PGADMIN_USER}
+      - PGADMIN_DEFAULT_PASSWORD=${QIN_PGADMIN_PASS}
+    ports:
+      - "5433:80"
+    expose:
+      - 5433
+    networks:
+      - qin_net_run
+
+networks:
+  qin_net_run:
+    external: true

@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  qvess_ser_stk_java:
+    tty: true
+    stdin_open: true
+    container_name: qvess_stk_java
+    image: pointeldevs/stk_java
+    build: .
+    volumes:
+      - ${QIN_ROOT}/Work:/root
+      - ${QIN_ROOT}/Arch:/root/Arch
+      - ${QIN_ROOT}/Code:/root/Code
+      - ${QIN_ROOT}/Pool:/root/Pool
+      - ${QIN_ROOT}/Prod:/root/Prod
+      - ${QIN_ROOT}/Test:/root/Test
+    environment:
+      - QIN_ROOT=/root
+    networks:
+      - qin_net_stk
+    working_dir: /root
+
+networks:
+  qin_net_stk:
+    external: true

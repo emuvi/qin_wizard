@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  qvess_ser_stk_postgres:
+    container_name: qvess_stk_postgres
+    image: postgres:13-alpine
+    volumes:
+      - ${QIN_ROOT}/Data/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${QIN_POSTGRES_PASS}
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    networks:
+      - qin_net_stk
+
+networks:
+  qin_net_stk:
+    external: true

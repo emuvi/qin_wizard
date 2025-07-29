@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  qvess_ser_run_postgres:
+    container_name: qvess_run_postgres
+    image: postgres:13-alpine
+    volumes:
+      - ${QIN_ROOT}/Data/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${QIN_POSTGRES_PASS}
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    restart: always
+    networks:
+      - qin_net_run
+
+networks:
+  qin_net_run:
+    external: true
